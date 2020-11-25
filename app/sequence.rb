@@ -45,7 +45,7 @@ class SequenceCached < Sequence
 
   def get_member(index)
     build(index)
-    @sequence[index]
+    @sequence[index - 1]
   end
 
   def get_sequence(len)
