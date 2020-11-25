@@ -7,26 +7,21 @@ class LookSayMember
   extend Member
   attr_reader :value
 
-  REGEXP = Regexp.new('(1+)|(2+)|(3+)')
-  REGEXP_REVERSE = Regexp.new('(1+)|(2+)|(3+)')
-
   def initialize(value)
     @value = value.to_s
   end
 
   def next
-    groups = @value.scan(REGEXP)
     next_member = String.new
-    groups.each do |m|
-      match = get_match(m)
-      next_member += "#{match.length}#{match[0]}"
+    buffer = String.new
+    @value.each_char do |c|
+      unless buffer[-1] == c || buffer.empty?
+        next_member += "#{buffer.length}#{buffer[0]}"
+        buffer.clear
+      end
+      buffer += c
     end
+    next_member += "#{buffer.length}#{buffer[0]}" unless buffer.empty?
     LookSayMember.new(next_member)
-  end
-
-  private
-
-  def get_match(arr)
-    arr.compact[0]
   end
 end
