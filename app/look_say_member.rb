@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../member'
+require_relative 'member'
 
 # Class which represents look-and-say sequence member
 class LookSayMember
