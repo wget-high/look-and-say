@@ -2,6 +2,10 @@
 
 # Ascending sequence member interface
 module Member
+  def value
+    raise 'Not implemented!'
+  end
+
   def next
     raise 'Not implemented!'
   end
