@@ -24,4 +24,8 @@ class LookSayMember
     next_member += "#{buffer.length}#{buffer[0]}" unless buffer.empty?
     LookSayMember.new(next_member)
   end
+
+  def ==(other)
+    @value == other.value
+  end
 end

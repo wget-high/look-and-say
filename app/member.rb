@@ -5,4 +5,8 @@ module Member
   def next
     raise 'Not implemented!'
   end
+
+  def ==(other)
+    raise 'Not implemented!'
+  end
 end
